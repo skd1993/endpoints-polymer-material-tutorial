@@ -1,0 +1,65 @@
+
+    	html, body {
+    		height: 100%;
+    		margin: 0;
+    		background-color: #F5F5F5;
+    		font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+    	}
+    	
+    	core-header-panel {
+		    height: 100%; /*this is mandatory, otherwise the panel takes no space at all*/
+		  }
+		  
+		core-toolbar {
+			background: #03a9f4;
+			padding-left: 10px;
+			padding-right: 10px;
+			color: white;
+			font-size: 20pt;
+		}
+		  
+		paper-input {
+			width: 18ex;
+			margin-right: 3ex;
+			margin-top: 15px;
+			font-size: 13pt;
+		}
+		
+		paper-input /deep/ #underline          { background:rgba(255,255,255,0.8); }
+		paper-input /deep/ #underlineHighlight { background:rgba(255,255,255,0.8); }
+		paper-input /deep/ #caretInner         { background:rgba(255,255,255,0.5); }
+		paper-input /deep/ #label              { color: rgba(255,255,255,0.5); }
+		paper-input /deep/ #input              { color:white; }
+  
+    	paper-dialog {
+	      width: 50%;
+	      min-width: 430px;
+	    }
+	    
+	    paper-fab {
+		   	position: relative;
+		   	top: 35px;
+		   	right: 5px;
+		    background-color: white;
+		    z-index: 1;
+	    }
+	    
+	    paper-fab /deep/ #icon       { fill: #aaa; transition: 0.3s; }
+    	paper-fab:hover /deep/ #icon { fill: #03a9f4; }
+		
+	    paper-dialog paper-button {
+	      font-weight: bold;
+	    }
+	
+	    paper-button[default] {
+	      color: #4285f4;
+	    }
+	    
+	    paper-card {
+	    	margin: 20px;
+	    }
+	    
+	    #container {
+	    	width: 100%;
+	    	margin: 30px;
+	    }
