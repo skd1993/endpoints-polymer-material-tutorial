@@ -1,0 +1,22 @@
+{
+  "name": "cloud_endpoints_start8",
+  "version": "0.0.0",
+  "authors": [
+    "Martin Görner <martin.gorner@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "paper-elements": "Polymer/paper-elements#~0.3.4",
+    "input-array": "arodic/input-array#master",
+    "core-elements": "Polymer/core-elements#~0.3.4"
+  }
+}

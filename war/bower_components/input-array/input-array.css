@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+::content > * {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+::content > *::before {
+  display: block;
+  float: left;
+}
+
+::content > *::after {
+  display: block;
+  float: right;
+  content: ',';
+}
+
+::content :first-child::before {
+  content: '[';
+}
+::content :last-child::after {
+  content: ']';
+}

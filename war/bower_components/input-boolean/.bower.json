@@ -1,0 +1,32 @@
+{
+  "name": "input-array",
+  "version": "0.2.7",
+  "homepage": "https://github.com/arodic/input-array",
+  "authors": [
+    "Aleksandar Rodic <aleksandar.xyz@gmail.com>"
+  ],
+  "description": "Custom input element for numerical array data type.",
+  "main": "input-array.html",
+  "keywords": [
+    "input",
+    "field",
+    "polymer",
+    "web-components",
+    "UI",
+    "array",
+    "matrix"
+  ],
+  "license": "Apache 2.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3"
+  },
+  "_release": "0.2.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.7",
+    "commit": "755fa897187daabc6c7850bc6f548ba1e5e563b2"
+  },
+  "_source": "git://github.com/arodic/input-boolean.git",
+  "_target": "~0.2.7",
+  "_originalSource": "input-boolean"
+}

@@ -1,0 +1,9 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<polymer-element name="input-boolean" attributes="value editable trueStr falseStr width">
+  <template>
+    <link href="input-boolean.css" rel="stylesheet" type="text/css">
+    <content>{{value ? trueStr : falseStr}}</content>
+  </template>
+  <script type="text/javascript" src="input-boolean.js"></script>
+</polymer-element>

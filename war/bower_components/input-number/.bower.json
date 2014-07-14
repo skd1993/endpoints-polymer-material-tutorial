@@ -1,0 +1,31 @@
+{
+  "name": "input-number",
+  "version": "0.2.7",
+  "homepage": "https://github.com/arodic/input-number",
+  "authors": [
+    "Aleksandar Rodic <aleksandar.xyz@gmail.com>"
+  ],
+  "description": "Custom input element for number data type.",
+  "main": "input-number.html",
+  "keywords": [
+    "input",
+    "field",
+    "polymer",
+    "web-components",
+    "UI",
+    "number"
+  ],
+  "license": "Apache 2.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3"
+  },
+  "_release": "0.2.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.7",
+    "commit": "b5c9d0791e9bea9424a26c6eb93a714b003d2f0f"
+  },
+  "_source": "git://github.com/arodic/input-number.git",
+  "_target": "~0.2.7",
+  "_originalSource": "input-number"
+}

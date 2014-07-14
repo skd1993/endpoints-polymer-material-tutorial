@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  vertical-align: top;
+  overflow-x: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+:host(:focus) {
+  outline: 0;
+}
