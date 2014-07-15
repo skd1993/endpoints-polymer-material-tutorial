@@ -4,42 +4,41 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Hello Cloud Endpoints</title>
+    
+    <!-- Polymer and your API init -->
     <script type="text/javascript">
    
-    	var polymerReady   = false;
+    	var polymerReady = false;
+    	var gapiReady    = false;
+    	
     	document.addEventListener('polymer-ready', function() { 		
     		polymerReady = true;
     		// put here your initialisations that need to execute when the DOM and polymer are ready
     		} ); 
     	
     	function api_init()
-    	{
-    		
-    		// load your own Cloud Endpoints API using:
-    		// gapi.client.load('greetings', 'v1', ---callback--- , '//'' + window.location.host + '/_ah/api');
+    	{	
+    		// load your own Cloud Endpoints API here:
+    		var protocol = window.location.host.search('localhost')==-1 ? 'https://' : 'http://'
+    		gapi.client.load('greetings', 'v1', function() { gapiReady = true } , protocol + window.location.host + '/_ah/api');
         }
     	
-    	// This function is caled when the "gapi" script below has finished loading the Google API client.js
-    	// here is where we load our "greetings" API. In the load callback, we can start calling our API.
-    	function api_init()
-    	{
-    		var protocol = window.location.host.search('localhost')==-1 ? 'https://' : 'http://' 
-    		gapi.client.load('greetings', 'v1', function() { do_call('Mr. Jones') }, protocol + window.location.host + '/_ah/api');
-        }
-    	
-    	// call our "greetings" API with a name
-    	function do_call(name)
-    	{
-    		gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
-  	        	      if (!resp.code)
-	  	        	      alert(resp.text + ' ' + resp.avatarId);
-  	        	      })
-    	}
-    	
+    	// function to call our "greetings" API with a name
+		function do_call(name)
+		{
+			gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
+		        if (!resp.code)
+	  	            alert(resp.text + ' ' + resp.avatarId);
+		        })
+		}
     </script>
     
     <!-- Google API init  -->
     <script src="https://apis.google.com/js/client.js?onload=api_init"></script>
+    
+    <script type="text/javascript">
+	 	
+    </script>
     
     <!-- POLYMER init and imports-->
     <script src="bower_components/platform/platform.js"></script>
@@ -53,8 +52,7 @@
 
   </head>
 
-  <body unresolved>  
-	
-	    
+  <body unresolved>
+  	
   </body>
 </html>

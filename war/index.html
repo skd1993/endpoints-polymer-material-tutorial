@@ -6,7 +6,8 @@
     <title>Hello Cloud Endpoints</title>
     <script type="text/javascript">
    
-    	var polymerReady   = false;
+    	var polymerReady = false;
+    	var gapiReady    = false;
     	
     	// this will be executed when polymer and the DOM are ready
     	document.addEventListener('polymer-ready', function() {
@@ -20,22 +21,23 @@
     					do_call(inputBox.value);
     			});
     		
-    		} ); 
+    	} ); 
     	
-    	// load our "greetings" API
+    	// load our "greetings" API, we send a first call to the API as soon as it is loaded
     	function api_init()
     	{
     		var protocol = window.location.host.search('localhost')==-1 ? 'https://' : 'http://' 
-    		gapi.client.load('greetings', 'v1', function() {do_call('Mr. Jones')}, protocol + window.location.host + '/_ah/api');
+    		gapi.client.load('greetings', 'v1', function() {gapiReady = true; do_call('Mr. Jones')}, protocol + window.location.host + '/_ah/api');
         }
     	
-    	// call our "greetings" API with a name
+    	// function to call our "greetings" API with a name
     	function do_call(name)
     	{
-    		gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
-  	        	      if (!resp.code)
-	  	        	      display_new_card(resp.text, resp.avatarId);
-  	        	      })
+    		if (gapiReady)
+	    		gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
+	  	        	 if (!resp.code)
+		  	        	  display_new_card(resp.text, resp.avatarId);
+	  	        	 })
     	}
     	
     	// display a greeting card with a given text and avatar number
