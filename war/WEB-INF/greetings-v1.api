@@ -32,7 +32,7 @@
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.mgorner.endpoints.GreetingsAPI.hello",
+      "rosyMethod" : "com.endpoints.tutorial.GreetingsAPI.hello",
       "request" : {
         "parameters" : {
           "who" : {
@@ -63,7 +63,7 @@
       }
     },
     "methods" : {
-      "com.mgorner.endpoints.GreetingsAPI.hello" : {
+      "com.endpoints.tutorial.GreetingsAPI.hello" : {
         "response" : {
           "$ref" : "Greeting"
         }
