@@ -53,10 +53,6 @@
         "id" : "Greeting",
         "type" : "object",
         "properties" : {
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
           "text" : {
             "type" : "string"
           },
