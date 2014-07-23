@@ -36,23 +36,26 @@
     		if (gapiReady)
 	    		gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
 	  	        	 if (!resp.code)
-	  	        	 {
-		  	        	 display_new_card(resp.id, resp.text, resp.avatarId);
-	  	        	 }
-	  	        })
+		  	        	  display_new_card(resp.text, resp.avatarId);
+	  	        	 })
     	}
     	
     	// display a greeting card with a given text and avatar number
-    	function display_new_card(id, text, avatarId)
+    	function display_new_card(text, avatarId)
 		{
     		// in case the dom and polymer are not ready yet, retry in 300ms.
     		if (!polymerReady)
-    			window.setTimeout(function(){display_new_card(id, text, avatarId)}, 300);
+    			window.setTimeout(function(){display_new_card(text, avatarId)}, 300);
     		else
     		{
-       			// add it to the data model
-       			var model = document.querySelector('greetings-list');
-       			model.add(new Object({id: id, text: text, avatarSrc: "images/avatar-" + (avatarId + 1) + ".svg"}))
+    			// create a a paper-card programatically
+       			var container = document.getElementById('container');
+       			var card = document.createElement('paper-card');
+       			var icon = new Image();
+       			icon.src = "images/avatar-" + (avatarId + 1) + ".svg";
+       			card.appendChild(icon);
+       			card.title = text;
+       			container.appendChild(card);
     		}
 		}
     </script>
@@ -71,7 +74,6 @@
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
     <link rel="import" href="bower_components/core-icons/core-icons.html">
     <link rel="import" href="paper-card.html">
-    <link rel="import" href="greetings-list.html">
     
     <!-- styles specific to this app --> 
     <link rel="stylesheet" type="text/css" href="styles.css" shim-shadowdom>
@@ -79,7 +81,7 @@
   </head>
 
 <body unresolved>  
-	
+
 	<core-header-panel>
 		<core-toolbar horizontal layout center>
 			<div flex>Welcome</div>
@@ -87,8 +89,8 @@
 			<paper-fab icon="cloud" onclick="do_call(document.querySelector('paper-input').value)"></paper-fab>	
 		</core-toolbar>
 		
-		<greetings-list layout horizontal wrap></greetings-list>
-
+		<div id="container" horizontal layout wrap>
+		</div>
 	</core-header-panel>  
 		
 	    <paper-dialog heading="The server responded" id="dialog" transition="paper-dialog-transition-bottom">

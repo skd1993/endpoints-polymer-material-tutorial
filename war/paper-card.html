@@ -2,7 +2,7 @@
 <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
 
-<polymer-element name="paper-card" attributes="z uid heading selected"  on-tap="{{tapAction}}">
+<polymer-element name="paper-card" attributes="z title selected"  on-tap="{{tapAction}}">
 	
   <template>
     <style>
@@ -45,7 +45,7 @@
 	<paper-shadow z="{{z}}" animated="true"></paper-shadow>
     <div class="card-header" layout horizontal center>
     	<content select="img"></content>
-    	<h3>{{heading}}</h3>
+    	<h3>{{title}}</h3>
   	</div>
     <paper-icon-button icon="close" on-tap="{{close}}"></paper-icon-button>
   	<content></content>
@@ -77,9 +77,7 @@
     	  },
       close: function(e) {
     	  e.stopPropagation();
-    	  var model = document.querySelector('greetings-list');
-    	  if (model != null)
-			model.del(this.uid);
+    	  // do something useful...
       },
       attached: function() {
     	        this.addEventListener('mouseenter', function(e) {

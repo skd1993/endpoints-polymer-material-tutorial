@@ -1,3 +1,2 @@
 endpoint-libs
 *.discovery
-war/WEB-INF/appengine-generated
