@@ -1,13 +1,13 @@
 {
   "extends" : "thirdParty.api",
   "abstract" : false,
-  "root" : "https://######## your application id here ###########.appspot.com/_ah/api",
+  "root" : "https://--------your-application-id-here--------.appspot.com/_ah/api",
   "name" : "greetings",
   "version" : "v1",
   "description" : "A simple and polite API",
   "defaultVersion" : false,
   "adapter" : {
-    "bns" : "https://######## your application id here ###########.appspot.com/_ah/spi",
+    "bns" : "https://--------your-application-id-here--------.appspot.com/_ah/spi",
     "deadline" : 65.0,
     "type" : "lily"
   },
