@@ -4,18 +4,15 @@
 <polymer-element name="greetings-list" attributes="list">
     <template>
     <style>
-    	paper-card {
-	    	margin: 20px;
-	    }
+    		paper-card { margin: 20px; }
     </style>
     	<template repeat="{{g in list}}">
-    		<paper-card heading="{{g.text}}" uid={{g.id}}>
-    			<img src="{{g.avatarSrc}}">
+    		<paper-card heading="[[g.text]]" uid=[[g.id]]>
+    			<img src="[[g.avatarSrc]]">
     		</paper-card>
-    		<!-- BUUUUG  [[g.text]] works but {{g.text}} does not on attribute title (because title is a published property of paper-card ?) -->
-    		<!-- BUUUUG  {{g.text}} works for inner text or any unpublished attribute -->
-    		<!-- BUUUUG  changing the published attribute name to titlex for example also makes it work -->
-    		<!-- This is most probably because title and id are standard HTML properties -->
+    		<!-- {{g.text}} is a two-way data binding -->
+    		<!-- [[g.text]] is a one-time data binding -->
+    		<!-- WARNING: do not even think of redefining standard HTML attributes like title, id, ... -->    		
     	</template>
     </template>
 	<script>

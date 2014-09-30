@@ -20,8 +20,7 @@
 		  
 		paper-input {
 			width: 18ex;
-			margin-right: 3ex;
-			margin-bottom: 10px;
+			margin-bottom: 1ex !important;
 			font-size: 13pt;
 		}
 		
@@ -31,11 +30,6 @@
 		paper-input /deep/ .label                { color: rgba(255,255,255,0.5); }
 		paper-input /deep/ #input                { color:white; }
   
-    	paper-dialog {
-	      width: 50%;
-	      min-width: 430px;
-	    }
-	    
 	    paper-fab {
 		   	position: relative;
 		   	top: 35px;
@@ -45,15 +39,14 @@
 	    }
 	    
 	    paper-fab /deep/ #icon       { fill: #aaa; transition: 0.3s; }
-    	paper-fab:hover /deep/ #icon { fill: #03a9f4; }
+    		paper-fab:hover /deep/ #icon { fill: #03a9f4; }
 		
-	    paper-dialog paper-button {
-	      font-weight: bold;
-	    }
-	
-	    paper-button[default] {
-	      color: #4285f4;
-	    }
+	    paper-dialog { width: 300px; }
+	    paper-dialog /deep/ #main { padding: 44px 24px 24px; }
+	    paper-dialog /deep/ #actions { padding: 4px 16px 16px; }
+	    paper-dialog paper-button { background: #ddd; min-width: 5em;}
+	    paper-dialog paper-button:hover { background: #aae5ff; }
+	    paper-dialog paper-button::shadow #ripple { color: #fff; }
 	    
 	    paper-card {
 	    	margin: 20px;
