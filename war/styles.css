@@ -34,13 +34,14 @@
 		   	position: relative;
 		   	top: 35px;
 		   	right: 5px;
+		   	color: #aaa;
 		    background-color: white;
+		    transition: 0.3s;
 		    z-index: 1;
 	    }
 
-		paper-fab /deep/ #icon       { vertical-align: baseline }
-	    paper-fab /deep/ #icon       { fill: #aaa; transition: 0.3s; }
-    		paper-fab:hover /deep/ #icon { fill: #03a9f4; }
+		paper-fab /deep/ #icon       { vertical-align: baseline } /*bug?*/
+    		paper-fab:hover /deep/ #icon { color: #03a9f4; }
 
 	    paper-dialog { width: 300px; }
 	    paper-dialog /deep/ #main { padding: 44px 24px 24px; }
