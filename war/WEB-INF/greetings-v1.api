@@ -26,7 +26,7 @@
   },
   "methods" : {
     "greetings.hello" : {
-      "path" : "hello/{who}",
+      "path" : "hello",
       "httpMethod" : "POST",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
@@ -37,7 +37,7 @@
         "parameters" : {
           "who" : {
             "type" : "string",
-            "required" : true
+            "required" : false
           }
         },
         "body" : "empty"
