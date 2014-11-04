@@ -7,6 +7,7 @@ import static com.endpoints.tutorial.ObjectifyDAO.ofy;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
+import com.google.api.server.spi.config.Nullable;
 import com.google.api.server.spi.config.Named;
 import com.googlecode.objectify.Key;
 
@@ -18,9 +19,9 @@ import com.googlecode.objectify.Key;
 public class GreetingsAPI
 {
 	@ApiMethod(name = "hello")
-	public Greeting hello(@Named("who") String who)
+	public Greeting hello(@Nullable @Named("who") String who)
 	{
-		String text = new String("Hello ").concat(who);
+		String text = new String("Hello ").concat(who == null ? "" : who);
 		Greeting g = ofy().load().type(Greeting.class).filter("text", text).first().now();
 		if (g == null)
 		{
