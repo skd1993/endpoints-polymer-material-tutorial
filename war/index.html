@@ -39,8 +39,7 @@
 	}
     	
 	// function to call our "greetings" API with a name
-	function do_call(name)
-	{
+	function do_call(name) {
 		if (gapiReady)
 			gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
 				if (!resp.code)
