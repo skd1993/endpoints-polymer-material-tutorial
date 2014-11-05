@@ -38,17 +38,6 @@
 		gapi.client.load('greetings', 'v1', function() {gapiReady = true; do_call('Mr. Jones')}, protocol + window.location.host + '/_ah/api');
 	}
     	
-	// function to call our "greetings" API with a name
-	function do_call(name) {
-		if (gapiReady)
-			gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
-				if (!resp.code)
-				{
-					display_new_card(resp.id, resp.text, resp.avatarId);
-				}
-			})
-	}
-    	
 	// display a greeting card with a given text and avatar number
 	function display_new_card(id, text, avatarId) {
 		// in case the dom and polymer are not ready yet, retry in 300ms.
@@ -59,6 +48,17 @@
 			var model = document.querySelector('greetings-list');
 			model.add(new Object({id: id, text: text, avatarSrc: "images/avatar-" + (avatarId + 1) + ".svg"}))
 		}
+	}
+	
+	// function to call our "greetings" API with a name
+	function do_call(name) {
+		if (gapiReady)
+			gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
+				if (!resp.code)
+				{
+					display_new_card(resp.id, resp.text, resp.avatarId);
+				}
+			})
 	}
     </script>
     
