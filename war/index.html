@@ -19,51 +19,48 @@
     	var gapiReady    = false;
     	
     	// this will be executed when polymer and the DOM are ready
-    	document.addEventListener('polymer-ready', function() {
-    		
-    		polymerReady = true;
-    		
-    		// call the API when a value is entered into the input box
-    		var inputBox    = document.querySelector('paper-input');
-    		inputBox.addEventListener('keyup', function(e) {
-    				if (e.keyCode == 13)
-    					do_call(inputBox.value);
-    			});
-    		
-    	} ); 
+	document.addEventListener('polymer-ready', function() {
+		
+		polymerReady = true;
+		
+		// call the API when a value is entered into the input box
+		var inputBox    = document.querySelector('paper-input');
+		inputBox.addEventListener('keyup', function(e) {
+				if (e.keyCode == 13)
+					do_call(inputBox.value);
+			});
+		
+	} ); 
     	
-    	// load our "greetings" API, we send a first call to the API as soon as it is loaded
-    	function api_init()
-    	{
-    		var protocol = window.location.host.search('localhost')==-1 ? 'https://' : 'http://' 
-    		gapi.client.load('greetings', 'v1', function() {gapiReady = true; do_call('Mr. Jones')}, protocol + window.location.host + '/_ah/api');
-        }
+	// load our "greetings" API, we send a first call to the API as soon as it is loaded
+	function api_init() {
+		var protocol = window.location.host.search('localhost')==-1 ? 'https://' : 'http://' 
+		gapi.client.load('greetings', 'v1', function() {gapiReady = true; do_call('Mr. Jones')}, protocol + window.location.host + '/_ah/api');
+	}
     	
-    	// function to call our "greetings" API with a name
-    	function do_call(name)
-    	{
-    		if (gapiReady)
-	    		gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
-	  	        	 if (!resp.code)
-	  	        	 {
-		  	        	 display_new_card(resp.id, resp.text, resp.avatarId);
-	  	        	 }
-	  	        })
-    	}
+	// function to call our "greetings" API with a name
+	function do_call(name)
+	{
+		if (gapiReady)
+			gapi.client.greetings.hello( {'who': name} ).execute(function(resp) {
+				if (!resp.code)
+				{
+					display_new_card(resp.id, resp.text, resp.avatarId);
+				}
+			})
+	}
     	
-    	// display a greeting card with a given text and avatar number
-    	function display_new_card(id, text, avatarId)
-		{
-    		// in case the dom and polymer are not ready yet, retry in 300ms.
-    		if (!polymerReady)
-    			window.setTimeout(function(){display_new_card(id, text, avatarId)}, 300);
-    		else
-    		{
-       			// add it to the data model
-       			var model = document.querySelector('greetings-list');
-       			model.add(new Object({id: id, text: text, avatarSrc: "images/avatar-" + (avatarId + 1) + ".svg"}))
-    		}
+	// display a greeting card with a given text and avatar number
+	function display_new_card(id, text, avatarId) {
+		// in case the dom and polymer are not ready yet, retry in 300ms.
+		if (!polymerReady)
+			window.setTimeout(function(){display_new_card(id, text, avatarId)}, 300);
+		else {
+			// add it to the data model
+			var model = document.querySelector('greetings-list');
+			model.add(new Object({id: id, text: text, avatarSrc: "images/avatar-" + (avatarId + 1) + ".svg"}))
 		}
+	}
     </script>
     
     <!-- Google API init  -->
