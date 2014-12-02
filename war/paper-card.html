@@ -1,5 +1,5 @@
 ﻿<link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
 
 <polymer-element name="paper-card" attributes="z uid heading selected"  on-tap="{{tapAction}}">
@@ -28,17 +28,10 @@
 			position: absolute;
 			top: 1px;
 			right: 1px;
-			fill: #ccc;
+			color: #ccc;
 			transition: 0.3s; 
 		}
-		
-		paper-icon-button /deep/ #icon {
-			fill: #ccc;
-			transition: 0.3s; 
-		}
-		paper-icon-button:hover /deep/ #icon {
-			fill: black;
-		}  
+		paper-icon-button:hover /deep/ #icon { color: #444 }  
   
     </style>
     
